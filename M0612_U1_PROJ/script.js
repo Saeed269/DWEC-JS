@@ -108,13 +108,21 @@ function crearTarjetas(filosofos) {
             habilidades.append(habilidad);
         }
 
+        // Creamos botón de eliminación
+        let botonEliminar = document.createElement('div');
+        botonEliminar.innerHTML = '&#x2716;';
+        botonEliminar.classList.add('botonEliminar');
+        botonEliminar.addEventListener('click', eliminarTarjeta);
+        tarjeta.append(botonEliminar);
+
         // Añadimos tarjeta creada al contenedor de tarjetas
         let contenedor = document.querySelector('.cards-container');
         contenedor.append(tarjeta);
     })
 }
 
-function eliminarTarjeta() {
+function eliminarTarjeta(event) {
+    event.currentTarget.parentElement.remove();
 }
 
 function ordenarNombreAZ() {
